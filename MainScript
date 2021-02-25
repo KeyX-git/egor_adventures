@@ -1,0 +1,411 @@
+package main
+import "fmt"
+
+func main() {
+    var MAIN_MENU_CHOISE int
+    for{
+        fmt.Println("///////////////////////////")
+        fmt.Println("/Великие приключения Егора/")
+        fmt.Println("///////////////////////////")
+        fmt.Println("")
+        fmt.Println("       Главное меню:")
+        fmt.Println("1.Начать игру")
+        fmt.Println("2.Выйти")
+        fmt.Println("")
+        fmt.Println("Ваш выбор:")
+        fmt.Scanln(&MAIN_MENU_CHOISE)
+        if(MAIN_MENU_CHOISE == 2){
+            fmt.Println("")
+            fmt.Println("")
+            fmt.Println("")
+            fmt.Println("Спасибо за игру!")
+            fmt.Println("")
+            fmt.Println("")
+            break
+        }
+        if(MAIN_MENU_CHOISE==1){
+            Game()
+        }
+    }
+}
+func Game(){
+    var HOME_CHOISE int
+    HP:=3
+    DAMMAGE:=1
+    SPELL:=0
+    JOJO:=0
+    SKYRIM:=0
+    fmt.Println("")
+    fmt.Println("")
+    fmt.Println("Вы проснулись в своём доме, совершенно обычный день.")
+    fmt.Println("Вы начали задумываться чем бы занятся...")
+    fmt.Println("")
+    fmt.Println("")
+    fmt.Println("")
+    fmt.Println("")
+    fmt.Println("Продолжить...")
+    fmt.Scanln()
+    for{
+        fmt.Println("........Дом Егора........")
+        fmt.Println("")
+        fmt.Println("Что вы будете делать?:")
+        fmt.Println("1.Пойти погулять")
+        fmt.Println("2.Поспать")
+        fmt.Println("3.Посмотреть Аниме")
+        fmt.Println("4.Посидеть за компом")
+        fmt.Println("")
+        fmt.Println("Ваш выбор:")
+        fmt.Scanln(&HOME_CHOISE)
+        if(HOME_CHOISE == 1){
+            var RatWin bool
+            fmt.Println("")
+            fmt.Println("")
+            fmt.Println("Вы выйшли в подъезд.")
+            fmt.Println("Вы заметили агресивно настроеную крысу...")
+            fmt.Println("")
+            fmt.Println("")
+            fmt.Println("")
+            fmt.Println("")
+            fmt.Println("Продолжить...")
+            fmt.Scanln()
+            RatWin,HP = Fight("Крыса",2,1,"Укусила вас",HP,DAMMAGE,SPELL)
+            if(RatWin==false){
+                fmt.Println("Game Over")
+                fmt.Println("")
+                fmt.Println("Вы были убиты обычной крысой.")
+                fmt.Println("Мда...")
+                fmt.Println("")
+                fmt.Println("Плохая концовка")
+                fmt.Println("1/2")
+                fmt.Println("")
+                fmt.Println("Продолжить...")
+                fmt.Scanln()
+                break
+            }else{
+                var PickRat int
+                fmt.Println("")
+                fmt.Println("У вас появилось странное желание взять труп крысы.")
+                fmt.Println("")
+                fmt.Println("")
+                fmt.Println("1.Взять (Ваше текущее оружие будет заменено на труп крысы)")
+                fmt.Println("2.Не брать")
+                fmt.Println("")
+                fmt.Println("")
+                fmt.Println("Ваш выбор:")
+                fmt.Scanln(&PickRat)
+                if(PickRat==1){
+                    SPELL = 1
+                    fmt.Println("")
+                    fmt.Println("")
+                    fmt.Println("Вы подобрали труп крысы.")
+                    fmt.Println("")
+                    fmt.Println("")
+                    fmt.Println("Это теперь ваше оружие...")
+                    fmt.Println("")
+                    fmt.Println("")
+                    fmt.Println("Продолжить...")
+                    fmt.Scanln()
+                }
+            }
+            fmt.Println("")
+            fmt.Println("")
+            fmt.Println("Вы открыли дверь подъезда.")
+            fmt.Println("Вы увидели лучики солнечного света!")
+            fmt.Println("Егор: Как давно я не выходил?")
+            fmt.Println("")
+            fmt.Println("")
+            fmt.Println("")
+            fmt.Println("Продолжить...")
+            fmt.Scanln()
+            for{
+                fmt.Println("........Улица........")
+                fmt.Println("")
+                fmt.Println("Что вы будете делать?:")
+                fmt.Println("1.Пойти в магазин")
+                fmt.Println("2.Пойти в качалку")
+                fmt.Println("3.Пойти к мусорке")
+                fmt.Println("4.Вернуться домой")
+                fmt.Println("")
+                fmt.Println("Ваш выбор:")
+                fmt.Scanln(&HOME_CHOISE)
+                if(HOME_CHOISE==1){
+                    //магазин
+                }
+                if(HOME_CHOISE==4){
+                    break
+                }
+            }
+        }
+        if(HOME_CHOISE == 2){
+            if(JOJO == 0){
+                if(SKYRIM ==0){
+                    fmt.Println("")
+                    fmt.Println("")
+                    fmt.Println("Вы решили поспать.")
+                    fmt.Println("Вы проспали пару часов но всё равно чуствуете себя уставшим")
+                    if HP<3{
+                        HP=3
+                        fmt.Println("Вы востановили HP")
+                    }else{
+                        fmt.Println("")
+                    }
+                    fmt.Println("")
+                    fmt.Println("")
+                    fmt.Println("")
+                    fmt.Println("Продолжить...")
+                    fmt.Scanln()
+                }else{
+                    
+                }
+            }else{
+                fmt.Println("")
+                fmt.Println("")
+                fmt.Println("После долгого просмотра JoJo вы лягли спать.")
+                fmt.Println("")
+                fmt.Println("Но что-то пошло не так...")
+                fmt.Println("")
+                fmt.Println("")
+                fmt.Println("")
+                fmt.Println("Продолжить...")
+                fmt.Scanln()
+                fmt.Println("")
+                fmt.Println("")
+                fmt.Println("Вы увидели странную фигуру...")
+                fmt.Println("Она предложила вам взять странную стрелу.")
+                fmt.Println("")
+                fmt.Println("Взять?")
+                fmt.Println("1.Да")
+                fmt.Println("2.Нет")
+                fmt.Println("Ваш выбор:")
+                fmt.Scanln(&HOME_CHOISE)
+                if(HOME_CHOISE == 1){
+                    SPELL=2
+                    JOJO=0
+                    fmt.Println("")
+                    fmt.Println("")
+                    fmt.Println("Вы взяли стрелу и проткнули себя стрелой.")
+                    fmt.Println("У вас появился стенд: StarPlatinum")
+                    fmt.Println("(Он заменил ваше оружие)")
+                    fmt.Println("")
+                    fmt.Println("")
+                    fmt.Println("")
+                    fmt.Println("Продолжить...")
+                    fmt.Scanln()
+                    fmt.Println("")
+                    fmt.Println("")
+                    fmt.Println("Вы проснулись.")
+                    fmt.Println("Вам приснился очень странный сон.")
+                    fmt.Println("")
+                    fmt.Println("Но вы получили способность призывать какого-то призрака.")
+                    fmt.Println("")
+                    fmt.Println("")
+                    fmt.Println("Продолжить...")
+                    fmt.Scanln()
+                }else{
+                    fmt.Println("")
+                    fmt.Println("")
+                    fmt.Println("Незнакомец снял капишон.")
+                    fmt.Println("ОКАЗАЛОСЬ ЭТО БЫЛ ДИО!")
+                    fmt.Println("")
+                    fmt.Println("Он кудато пропал.")
+                    fmt.Println("")
+                    fmt.Println("Вдруг ваш живот был пробит чем-то невидемым.")
+                    fmt.Println("Продолжить...")
+                    fmt.Scanln()
+                    fmt.Println("Game Over")
+                    fmt.Println("")
+                    fmt.Println("Вас нашли мёртвым в постели.")
+                    fmt.Println("Причину смерти так и не выявили")
+                    fmt.Println("")
+                    fmt.Println("Плохая концовка")
+                    fmt.Println("2/2")
+                    fmt.Println("")
+                    fmt.Println("Продолжить...")
+                    fmt.Scanln()
+                    break
+                }
+            }
+        }
+        if(HOME_CHOISE == 3){
+            fmt.Println("Вы решили посмотреть аниме.")
+            fmt.Println("")
+            fmt.Println("Что вы будете смотреть?:")
+            fmt.Println("1.JoJo")
+            fmt.Println("2.Наруто")
+            fmt.Println("3.Убийца гоблинов")
+            fmt.Println("")
+            fmt.Println("")
+            fmt.Println("Ваш выбор:")
+            fmt.Scanln(&HOME_CHOISE)
+            if(HOME_CHOISE == 1){
+                JOJO=1
+                fmt.Println("")
+                fmt.Println("")
+                fmt.Println("Вы посмотрели JoJo")
+                fmt.Println("Вам очень понравилось, но вы устали")
+                fmt.Println("Было бы хорошо поспать")
+                fmt.Println("")
+                fmt.Println("")
+                fmt.Println("")
+                fmt.Println("Продолжить...")
+                fmt.Scanln()
+            }
+        }
+    }
+}
+func Fight(EnemyName string, EnemyHP int, EnemyDamage int, EnemySpell string, PlayerHP int, PlayerDamage int, PlayerSpell int)(bool,int){
+    fmt.Println("")
+    fmt.Println("На вашем пути встал:",EnemyName)
+    fmt.Println("HP:",EnemyHP)
+    fmt.Println("DAMMAGE:",EnemyDamage)
+    fmt.Println("Битва неизбежна...")
+    fmt.Println("")
+    fmt.Println("")
+    fmt.Println("")
+    fmt.Println("Продолжить...")
+    fmt.Scanln()
+    for PlayerHP>0{
+        var BattleChoise int
+        fmt.Println("Ваш враг:",EnemyName)
+        fmt.Println("HP:",EnemyHP)
+        fmt.Println("DAMMAGE:",EnemyDamage)
+        fmt.Println("Егор:")
+        fmt.Println("HP:",PlayerHP)
+        fmt.Println("DAMMAGE:",PlayerDamage)
+        fmt.Println("1.Ударить рукой")
+        if(PlayerSpell==0){
+            fmt.Println("")
+        }else if(PlayerSpell==1){
+            fmt.Println("2.Ударить крысой")
+        }else if(PlayerSpell==2){
+            fmt.Println("2.Использовать StarPlatinum")
+        }else if(PlayerSpell==3){
+            fmt.Println("2.Использовать крик")
+        }else if(PlayerSpell==4){
+            fmt.Println("2.Ударить лопатой")
+        }else if(PlayerSpell==5){
+            fmt.Println("2.Стукнуть бутылкой")
+        }
+        fmt.Println("Ваш Выбор:")
+        fmt.Scanln(&BattleChoise)
+        if(BattleChoise == 1){
+            EnemyHP = EnemyHP - PlayerDamage
+            PlayerHP = PlayerHP - EnemyDamage
+            fmt.Println("Вы ударили врага рукой.")
+            fmt.Println("-",PlayerDamage)
+            fmt.Println("")
+            fmt.Println(EnemyName,":",EnemySpell)
+            fmt.Println("-",EnemyDamage)
+            fmt.Println("")
+            fmt.Println("")
+            fmt.Println("")
+            fmt.Println("Продолжить...")
+            fmt.Scanln()
+        }
+        if(BattleChoise == 2){
+            if(PlayerSpell==1){
+                EnemyHP = EnemyHP - 3
+                PlayerHP = PlayerHP - EnemyDamage
+                fmt.Println("Вы бросили в врага дохлую крысу.")
+                fmt.Println("- 3")
+                fmt.Println("(Враг теперь воняет)")
+                fmt.Println(EnemyName,":",EnemySpell)
+                fmt.Println("-",EnemyDamage)
+                fmt.Println("")
+                fmt.Println("")
+                fmt.Println("")
+                fmt.Println("Продолжить...")
+                fmt.Scanln()
+            }else if(PlayerSpell==2){
+                EnemyHP = EnemyHP - 5
+                PlayerHP = PlayerHP - EnemyDamage
+                fmt.Println("Вы призвали стенд StarPlatinum.")
+                fmt.Println("- 5")
+                fmt.Println("(ORA ORA ORA ORA ORA ORA)")
+                fmt.Println(EnemyName,":",EnemySpell)
+                fmt.Println("-",EnemyDamage)
+                fmt.Println("")
+                fmt.Println("")
+                fmt.Println("")
+                fmt.Println("Продолжить...")
+                fmt.Scanln()
+            }else if(PlayerSpell==3){
+                EnemyHP = EnemyHP - 5
+                PlayerHP = PlayerHP - EnemyDamage
+                fmt.Println("Вы использовали драконий крик.")
+                fmt.Println("- 5")
+                fmt.Println("(FUS RO DAH!!!)")
+                fmt.Println(EnemyName,":",EnemySpell)
+                fmt.Println("-",EnemyDamage)
+                fmt.Println("")
+                fmt.Println("")
+                fmt.Println("")
+                fmt.Println("Продолжить...")
+                fmt.Scanln()
+            }else if(PlayerSpell==4){
+                EnemyHP = EnemyHP - 10
+                PlayerHP = PlayerHP - EnemyDamage
+                fmt.Println("Вы ударили врага лопатой.")
+                fmt.Println("- 10")
+                fmt.Println("(Враг не ожидал такого!)")
+                fmt.Println(EnemyName,":",EnemySpell)
+                fmt.Println("-",EnemyDamage)
+                fmt.Println("")
+                fmt.Println("")
+                fmt.Println("")
+                fmt.Println("Продолжить...")
+                fmt.Scanln()
+            }else if(PlayerSpell==5){
+                EnemyHP = EnemyHP - 8
+                PlayerHP = PlayerHP - EnemyDamage
+                fmt.Println("Вы стукнули врага бутылкой.")
+                fmt.Println("- 8")
+                fmt.Println("(На врага попали капли пива)")
+                fmt.Println(EnemyName,":",EnemySpell)
+                fmt.Println("-",EnemyDamage)
+                fmt.Println("")
+                fmt.Println("")
+                fmt.Println("")
+                fmt.Println("Продолжить...")
+                fmt.Scanln()
+            }
+        }
+        if(PlayerHP<=0){
+            fmt.Println("Вы проиграли!!!")
+            fmt.Println("")
+            fmt.Println("Вы не смогли победить врага:")
+            fmt.Println(EnemyName)
+            fmt.Println("")
+            fmt.Println("")
+            fmt.Println("")
+            fmt.Println("")
+            fmt.Println("Продолжить...")
+            fmt.Scanln()
+            return false,PlayerHP
+        }
+        if(EnemyHP<=0){
+            fmt.Println("Ура!!!")
+            fmt.Println("")
+            fmt.Println("Вы смогли победить врага:")
+            fmt.Println(EnemyName)
+            fmt.Println("")
+            fmt.Println("")
+            fmt.Println("")
+            fmt.Println("")
+            fmt.Println("Продолжить...")
+            fmt.Scanln()
+            return true,PlayerHP
+        }
+    }
+    fmt.Println("Вы проиграли!!!")
+    fmt.Println("")
+    fmt.Println("Вы не смогли победить врага:")
+    fmt.Println(EnemyName)
+    fmt.Println("")
+    fmt.Println("")
+    fmt.Println("")
+    fmt.Println("")
+    fmt.Println("Продолжить...")
+    fmt.Scanln()
+    return false,PlayerHP
+}
