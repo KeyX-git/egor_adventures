@@ -36,6 +36,8 @@ func Game(){
     JOJO:=0
     SKYRIM:=0
     BomjWin:=true
+    KachWin:=true
+    BossWin:=true
     fmt.Println("")
     fmt.Println("")
     fmt.Println("Вы проснулись в своём доме, совершенно обычный день.")
@@ -47,7 +49,7 @@ func Game(){
     fmt.Println("Продолжить...")
     fmt.Scanln()
     for{
-        if(BomjWin == false){
+        if(BomjWin == false || KachWin == false || BossWin == false){
             break
         }
         fmt.Println("........Дом Егора........")
@@ -80,7 +82,7 @@ func Game(){
                 fmt.Println("Мда...")
                 fmt.Println("")
                 fmt.Println("Плохая концовка")
-                fmt.Println("1/2")
+                fmt.Println("1/10")
                 fmt.Println("")
                 fmt.Println("Продолжить...")
                 fmt.Scanln()
@@ -122,6 +124,9 @@ func Game(){
             fmt.Println("Продолжить...")
             fmt.Scanln()
             for{
+                if(BossWin == false){
+                    break
+                }
                 fmt.Println("........Улица........")
                 fmt.Println("")
                 fmt.Println("Что вы будете делать?:")
@@ -134,6 +139,127 @@ func Game(){
                 fmt.Scanln(&HOME_CHOISE)
                 if(HOME_CHOISE==1){
                     //магазин
+                }
+                if(HOME_CHOISE==2){
+                    fmt.Println("")
+                    fmt.Println("")
+                    fmt.Println("Вы подошли к качалке.")
+                    fmt.Println("Месный качок: Дрыщям вход запрещён!")
+                    fmt.Println("")
+                    fmt.Println("1.Быкануть")
+                    fmt.Println("2.Уйти")
+                    fmt.Println("")
+                    fmt.Println("Ваш выбор:")
+                    fmt.Scanln(&HOME_CHOISE)
+                    if(HOME_CHOISE == 1){
+                        KachWin,HP = Fight("Месный качок",15,5,"Прописал вам двоечку",HP,DAMMAGE,SPELL)
+                        if(KachWin==true){
+                            fmt.Println("")
+                            fmt.Println("")
+                            fmt.Println("Вы пощядили качка")
+                            fmt.Println("Взамен он расказал, что проблема города в корупции")
+                            fmt.Println("А именно из-за мера, который также являеться ♂ боссом качалки ♂.")
+                            fmt.Println("Вы решили спасти этот город от корупции")
+                            fmt.Println("")
+                            fmt.Println("")
+                            fmt.Println("Продолжить...")
+                            fmt.Scanln()
+                            for{
+                                fmt.Println("........Качалка........")
+                                fmt.Println("")
+                                fmt.Println("Что вы будете делать?:")
+                                fmt.Println("")
+                                fmt.Println("1.Пойти в кабинет босса")
+                                fmt.Println("2.Пойти на тренажеры")
+                                fmt.Println("3.Пойти в столовку")
+                                fmt.Println("")
+                                fmt.Println("Ваш выбор:")
+                                fmt.Scanln(&HOME_CHOISE)
+                                if(HOME_CHOISE==1){
+                                    fmt.Println("Вы зашли в кабинет босса")
+                                    fmt.Println("")
+                                    fmt.Println("Он был покрыт мрамором и обставлен дорогой мебелью")
+                                    fmt.Println("И тут вышел он! Главный корупционер этого города.")
+                                    fmt.Println("Великий...")
+                                    fmt.Println("")
+                                    fmt.Println("")
+                                    fmt.Println("")
+                                    fmt.Println("Продолжить...")
+                                    fmt.Scanln()
+                                    fmt.Println("")
+                                    fmt.Println("")
+                                    fmt.Println("")
+                                    fmt.Println("")
+                                    fmt.Println("♂ Boss of the gym ♂")
+                                    fmt.Println("")
+                                    fmt.Println("")
+                                    fmt.Println("")
+                                    fmt.Println("Продолжить...")
+                                    fmt.Scanln()
+                                    BossWin,HP = Fight("♂ Boss of the gym ♂",45,10,"Сделал вам ♂ Fisting ♂",HP,DAMMAGE,SPELL)
+                                    if(BossWin==false){
+                                        fmt.Println("Game Over")
+                                        fmt.Println("")
+                                        fmt.Println("Вы были убиты ♂ Boss of the gym ♂.")
+                                        fmt.Println("Он захватил вас в рабство, и сделал своим ♂ Slave ♂.")
+                                        fmt.Println("")
+                                        fmt.Println("Плохая концовка")
+                                        fmt.Println("6/10")
+                                        fmt.Println("")
+                                        fmt.Println("Продолжить...")
+                                        fmt.Scanln()
+                                        break
+                                    }else{
+                                        
+                                    }
+                                }
+                                if(HOME_CHOISE==2){
+                                    fmt.Println("")
+                                    fmt.Println("")
+                                    fmt.Println("Вы сходили на тренажеры")
+                                    fmt.Println("Вы подкачались.")
+                                    fmt.Println("Теперь вы похожы на героя из JoJo")
+                                    fmt.Println("")
+                                    if(DAMMAGE < 15){
+                                        DAMMAGE = 15
+                                        fmt.Println("Теперь у вас 15 DAMMAGE")
+                                    }else{
+                                        fmt.Println("")
+                                    }
+                                    fmt.Println("")
+                                    fmt.Println("Продолжить...")
+                                    fmt.Scanln()
+                                }
+                                if(HOME_CHOISE==3){
+                                    fmt.Println("")
+                                    fmt.Println("")
+                                    fmt.Println("Вы сходили в столовку")
+                                    fmt.Println("Вы поели протеина.")
+                                    fmt.Println("Егор: Это конечно не пельмени...")
+                                    fmt.Println("")
+                                    if(HP < 35){
+                                        HP=35
+                                        fmt.Println("Теперь у вас 35 HP")
+                                    }
+                                    fmt.Println("")
+                                    fmt.Println("Продолжить...")
+                                    fmt.Scanln()
+                                }
+                            }
+                        }else{
+                            fmt.Println("Game Over")
+                            fmt.Println("")
+                            fmt.Println("Вы были убиты качком.")
+                            fmt.Println("Качку не хватало протеина,поетому он съел вас.")
+                            fmt.Println("")
+                            fmt.Println("Плохая концовка")
+                            fmt.Println("5/10")
+                            fmt.Println("")
+                            fmt.Println("Продолжить...")
+                            fmt.Scanln()
+                            break
+                        }
+                    }
                 }
                 if(HOME_CHOISE == 3){
                     
@@ -156,7 +282,7 @@ func Game(){
                         fmt.Println("Он похоронил вас в мусорке")
                         fmt.Println("")
                         fmt.Println("Плохая концовка")
-                        fmt.Println("4/2")
+                        fmt.Println("4/10")
                         fmt.Println("")
                         fmt.Println("Продолжить...")
                         fmt.Scanln()
@@ -275,7 +401,7 @@ func Game(){
                     fmt.Println("Причину смерти так и не выявили")
                     fmt.Println("")
                     fmt.Println("Плохая концовка")
-                    fmt.Println("2/2")
+                    fmt.Println("2/10")
                     fmt.Println("")
                     fmt.Println("Продолжить...")
                     fmt.Scanln()
@@ -324,7 +450,7 @@ func Game(){
                 fmt.Println("Причина смерти: Обезвоживание и голод.")
                 fmt.Println("")
                 fmt.Println("Плохая концовка")
-                fmt.Println("3/2")
+                fmt.Println("3/10")
                 fmt.Println("")
                 fmt.Println("Продолжить...")
                 fmt.Scanln()
