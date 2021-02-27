@@ -35,6 +35,7 @@ func Game(){
     SPELL:=0
     JOJO:=0
     SKYRIM:=0
+    BomjWin:=true
     fmt.Println("")
     fmt.Println("")
     fmt.Println("Вы проснулись в своём доме, совершенно обычный день.")
@@ -46,6 +47,9 @@ func Game(){
     fmt.Println("Продолжить...")
     fmt.Scanln()
     for{
+        if(BomjWin == false){
+            break
+        }
         fmt.Println("........Дом Егора........")
         fmt.Println("")
         fmt.Println("Что вы будете делать?:")
@@ -130,6 +134,59 @@ func Game(){
                 fmt.Scanln(&HOME_CHOISE)
                 if(HOME_CHOISE==1){
                     //магазин
+                }
+                if(HOME_CHOISE == 3){
+                    
+                    fmt.Println("")
+                    fmt.Println("")
+                    fmt.Println("Вы подошли к мусорке.")
+                    fmt.Println("Но вдруг...")
+                    fmt.Println("От туда резко вылез бомж и подумал что вы еда.")
+                    fmt.Println("")
+                    fmt.Println("")
+                    fmt.Println("")
+                    fmt.Println("Продолжить...")
+                    fmt.Scanln()
+                    BomjWin,HP = Fight("Бомж",8,2,"Бросил в вас мусором",HP,DAMMAGE,SPELL)
+                    if(BomjWin == false){
+                        HOME_CHOISE = 0
+                        fmt.Println("Game Over")
+                        fmt.Println("")
+                        fmt.Println("Вы были убиты бомжом.")
+                        fmt.Println("Он похоронил вас в мусорке")
+                        fmt.Println("")
+                        fmt.Println("Плохая концовка")
+                        fmt.Println("4/2")
+                        fmt.Println("")
+                        fmt.Println("Продолжить...")
+                        fmt.Scanln()
+                        break
+                    }else{
+                        var PickTrash int
+                        fmt.Println("")
+                        fmt.Println("Возле мусорки вы нашли бутылку.")
+                        fmt.Println("Её можно использовать как оружие")
+                        fmt.Println("")
+                        fmt.Println("1.Взять (Ваше текущее оружие будет заменено на бутылку)")
+                        fmt.Println("2.Не брать")
+                        fmt.Println("")
+                        fmt.Println("")
+                        fmt.Println("Ваш выбор:")
+                        fmt.Scanln(&PickTrash)
+                        if(PickTrash==1){
+                            SPELL = 5
+                            fmt.Println("")
+                            fmt.Println("")
+                            fmt.Println("Вы подобрали бутылку.")
+                            fmt.Println("")
+                            fmt.Println("")
+                            fmt.Println("Это теперь ваше оружие...")
+                            fmt.Println("")
+                            fmt.Println("")
+                            fmt.Println("Продолжить...")
+                            fmt.Scanln()
+                        }
+                    }
                 }
                 if(HOME_CHOISE==4){
                     break
@@ -246,6 +303,51 @@ func Game(){
                 fmt.Println("Было бы хорошо поспать")
                 fmt.Println("")
                 fmt.Println("")
+                fmt.Println("")
+                fmt.Println("Продолжить...")
+                fmt.Scanln()
+            }
+            if(HOME_CHOISE == 2){
+                fmt.Println("")
+                fmt.Println("")
+                fmt.Println("Вы посмотрели все серии Наруто.")
+                fmt.Println("Вам понадобилось очень много времени, вы начали умирать")
+                fmt.Println("Егор:Нужно было остановиться...")
+                fmt.Println("")
+                fmt.Println("")
+                fmt.Println("")
+                fmt.Println("Продолжить...")
+                fmt.Scanln()
+                fmt.Println("Game Over")
+                fmt.Println("")
+                fmt.Println("Вас нашли мёртвым за компютером.")
+                fmt.Println("Причина смерти: Обезвоживание и голод.")
+                fmt.Println("")
+                fmt.Println("Плохая концовка")
+                fmt.Println("3/2")
+                fmt.Println("")
+                fmt.Println("Продолжить...")
+                fmt.Scanln()
+                break
+            }
+            if(HOME_CHOISE == 3){
+                fmt.Println("")
+                fmt.Println("")
+                fmt.Println("Вы посмотрели Убийцу гоблинов")
+                fmt.Println("Вам очень понравилось, Вы отлично провели время")
+                if(DAMMAGE <4){
+                    DAMMAGE = DAMMAGE + 3
+                    fmt.Println("Ваш урон повышен (+3)")
+                }else{
+                    fmt.Println("")
+                }
+                fmt.Println("")
+                if HP<10{
+                    HP = HP + 5
+                    fmt.Println("Пока вы смотрели вам пренесли очень вкусные пельмени. (HP + 5)")
+                }else{
+                    fmt.Println("")
+                }
                 fmt.Println("")
                 fmt.Println("Продолжить...")
                 fmt.Scanln()
